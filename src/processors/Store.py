@@ -22,6 +22,7 @@ class Store:
             "area_grown_after_fire_data":self.__fire_processor.get_area_data(prov = self.ALL_PROV_VAL),
             "prov_list": list_prov,
             "active_prov": self.ALL_PROV_VAL,
+            "color_map": self.__fire_processor.get_color_map()
         }
 
         del list_prov
