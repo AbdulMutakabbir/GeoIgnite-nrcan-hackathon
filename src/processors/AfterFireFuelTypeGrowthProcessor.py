@@ -12,6 +12,9 @@ class AfterFireFuelTypeGrowthProcessor:
         self.__FILE = os.getenv('AFTER_FIRE_FUEL_GROWTH_PROV_CSV')
         self.__COLOR_MAP_FILE = os.getenv("FUEL_TYPE_COLOR_MAP_JSON")
         self.__COMBINATION_FILE = os.getenv("FUEL_TYPE_COMBINATION_JSON")
+        
+        self.FIRE_PROV_COL_NAME = os.getenv('FIRE_PROV_COL_NAME')
+        self.FIRE_YEAR_COL_NAME = os.getenv('FIRE_YEAR_COL_NAME')
 
         self.FUEL_TYPE_WATER = os.getenv('FUEL_TYPE_WATER')
 
