@@ -15,4 +15,5 @@
 
 from .dist_fuel_prov import *
 from .percentage_fuel_prov import *
+from .area_fuel_prov import *
 from .home_page import *
