@@ -147,3 +147,39 @@ class AfterFireFuelTypeGrowthProcessor:
         percentage_df = percentage_df.reset_index()
         
         return percentage_df
+
+    def get_area_data(self, prov:str):
+        # set default prov val
+        if prov is None:
+            prov = self.ALL_PROV_VAL
+
+        # init df
+        area_df = pd.DataFrame()
+
+        # provess prov data
+        if prov == self.ALL_PROV_VAL:
+            # group by year
+            area_df = self.data_df.groupby(
+                by = self.FIRE_YEAR_COL_NAME
+            ).sum()
+        elif prov in self.PROV_ORDER:
+            # filter to only the specific prov and set index to year
+            area_df = self.data_df[self.data_df[self.FIRE_PROV_COL_NAME] == prov].set_index(
+                self.FIRE_YEAR_COL_NAME
+            )
+        else:
+            raise ValueError("Not a valid Provience value")
+        
+        # drop prov col
+        area_df = self.__drop_column(
+            df = area_df,
+            col = self.FIRE_PROV_COL_NAME
+        )
+        
+        ## set units to km sq
+        area_df = area_df * 0.0009
+
+        # reset index to include year
+        area_df = area_df.reset_index()
+        
+        return area_df
