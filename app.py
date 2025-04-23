@@ -85,7 +85,7 @@ app.layout = [
                                                 "text-align": "center", 
                                                 "font-size": "2rem", 
                                             },
-                                            children = "Percentage of Fuel Type Grown in each Year after Historic Fires",
+                                            children = "Percentage of Fuel Type Grown each Year after Historic Fires",
                                         ),
                                         layouts.percentage_fuel_prov.get_layout(
                                             config = config.DistFuelProv,
@@ -100,13 +100,17 @@ app.layout = [
                         [
                             dbc.CardBody(
                                 [
-                                        html.H1(  
-                                            style={
-                                                "text-align": "center", 
-                                                "font-size": "2rem", 
-                                            },
-                                            children = "Fuel Type Grown in each Year after Historic Fires",
-                                        ),
+                                    html.H1(  
+                                        style={
+                                            "text-align": "center", 
+                                            "font-size": "2rem", 
+                                        },
+                                        children = "Fuel Type Grown in each Year after Historic Fires",
+                                    ),
+                                    layouts.area_fuel_prov.get_layout(
+                                        config = config.DistFuelProv,
+                                        store = store
+                                    )
                                 ]
                             ),
                         ],
