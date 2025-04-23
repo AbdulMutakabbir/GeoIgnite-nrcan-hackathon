@@ -14,5 +14,5 @@
 
 
 from .dist_fuel_prov import *
-from .fire_stats_prov import *
+from .percentage_fuel_prov import *
 from .home_page import *
