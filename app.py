@@ -65,7 +65,7 @@ app.layout = [
                                 ),
                                 layouts.dist_fuel_prov.get_layout(
                                     config = config.DistFuelProv,
-                                    processor = prov_land_area_processor
+                                    store = store
                                 )
                             ], 
                         ),
