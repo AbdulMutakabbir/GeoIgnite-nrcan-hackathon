@@ -46,6 +46,9 @@ class AfterFireFuelTypeGrowthProcessor:
         # run preprocessing
         self.__run_preprocessing()
 
+    def get_color_map(self):
+        return self.__COLOR_MAP
+
     def __init_color_map(self):
         with open(self.__get_fuel_color_map_file_loc(), "r") as f:
             self.__COLOR_MAP = json.load(f)
