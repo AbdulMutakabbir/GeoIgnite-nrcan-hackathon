@@ -55,7 +55,7 @@ class ProvFuelTypeLandAreaDataProcessor:
 
     def __init_combination_map(self):
         with open(self.__get_fuel_combination_file_loc(), "r") as f:
-            self.COMBINATION_MAP = json.load(f)
+            self.__COMBINATION_MAP = json.load(f)
 
     def __get_data_file_loc(self):
         return f"{self.__DATA_DIR}{os.sep}{self.__FILE}"
@@ -154,7 +154,7 @@ class ProvFuelTypeLandAreaDataProcessor:
             df = self.data_df,
             type_col = self.FUEL_COL_NAME,
             other_cols = [self.PROV_COL_NAME],
-            merge_map = self.COMBINATION_MAP
+            merge_map = self.__COMBINATION_MAP
         )
 
         # covert pixels to sq km
