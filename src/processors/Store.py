@@ -27,3 +27,11 @@ class Store:
 
         del list_prov
 
+    def set_active_prov(self, prov)->None:
+        if prov in self.state["prov_list"]:
+            self.state["active_prov"] = prov
+            self.__updated_prov_specific_data()
+
+    def __updated_prov_specific_data(self)->None:
+        self.state['percent_grown_after_fire_data'] = self.__fire_processor.get_percentage_data(prov = self.state["active_prov"])
+        self.state['area_grown_after_fire_data'] = self.__fire_processor.get_area_data(prov = self.state["active_prov"])

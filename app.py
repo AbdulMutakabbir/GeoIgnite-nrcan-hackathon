@@ -39,6 +39,7 @@ store = processors.Store()
 
 # Requires Dash 2.17.0 or later
 app.layout = [
+    # dcc.Store(id='store-id', data=store.state),
     layouts.home_page.get_layout(
 
     ),
@@ -128,6 +129,21 @@ app.layout = [
 callbacks.dist_fuel_prov.get_callback(
     app = app,
     config = config,
+    store = store,
+    fig_gen = {
+        "area-fire-stats-prov-id": layouts.area_fuel_prov.get_fig,
+        "percentage-fire-stats-prov-id": layouts.percentage_fuel_prov.get_fig
+    }
+)
+
+callbacks.active_prov_selector.get_callback(
+    app = app,
+    config = config,
+    store = store,
+    fig_gen = {
+        "area-fire-stats-prov-id": layouts.area_fuel_prov.get_fig,
+        "percentage-fire-stats-prov-id": layouts.percentage_fuel_prov.get_fig
+    }
 )
 
 if __name__ == "__main__":

@@ -1,9 +1,8 @@
 from dash import html, dcc
 import plotly.express as px
 
-def get_layout(
-    config,
-    store,
+def get_fig(
+    store
 ):
     data_df = store.state['area_grown_after_fire_data']
     fig = fig = px.bar(
@@ -38,9 +37,17 @@ def get_layout(
         ),
         margin=dict(t=0, b=0, l=0, r=0),
     )
+
+    return fig
+
+def get_layout(
+    config,
+    store,
+):
+    fig = get_fig(store=store)
     return html.Div([
         dcc.Graph(
-            id = "area-fire-stats-prov",
+            id = "area-fire-stats-prov-id",
             figure = fig
         ),
     ])

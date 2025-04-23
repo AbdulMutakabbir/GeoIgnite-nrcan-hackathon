@@ -22,7 +22,7 @@ def get_layout(
                 },
             ),
             dbc.Select(
-                id="active-prov-slector",
+                id="active-prov-selector",
                 options = [ {"label": prov, "value": prov} for prov in store.state['prov_list'] ],
                 value = store.state['active_prov']
             ),
