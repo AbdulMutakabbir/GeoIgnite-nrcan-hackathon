@@ -1,0 +1,21 @@
+{
+    "(?)": "rgb(252,146,114)",
+    "C-1 Spruce-Lichen Woodland": "rgb(209,255,115)",
+    "C-2 Boreal Spruce": "rgb(34,102,51)",
+    "C-3 Mature Jack or Lodgepole Pine": "rgb(131,199,149)",
+    "C-4 Immature Jack or Lodgepole Pine": "rgb(112,168,0)",
+    "C-5 Red and White Pine": "rgb(223,184,230)",
+    "C-7 Ponderosa Pine / Douglas Fir": "rgb(112,12,242)",
+    "D-1 Leafless Aspen": "rgb(196,189,151)",
+    "D-1/D-2 Aspen": "rgb(196,189,151)",
+    "D-1/D-2 Aspen ": "rgb(196,189,151)",
+    "O-1a Matted Grass": "rgb(255,255,190)",
+    "Non-fuel": "rgb(130,130,130)",
+    "Water": "rgb(115,223,255)",
+    "Vegetated Non-Fuel": "rgb(204,204,204)", 
+    "M-1/M-2 Boreal Mixedwood": "rgb(255,211,127)",
+    "M-1 Boreal Mixedwood - Leafless (15% Conifer)": "rgb(255,211,127)",
+    "M-1/M-2 Boreal Mixedwood (25% Conifer)": "rgb(255,211,127)",
+    "M-1/M-2 Boreal Mixedwood (50% Conifer)": "rgb(255,211,127)",
+    "M-1/M-2 Boreal Mixedwood (75% Conifer)": "rgb(255,211,127)"
+}
