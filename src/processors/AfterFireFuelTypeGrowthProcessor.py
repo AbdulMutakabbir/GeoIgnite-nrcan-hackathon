@@ -12,7 +12,7 @@ class AfterFireFuelTypeGrowthProcessor:
         self.__FILE = os.getenv('AFTER_FIRE_FUEL_GROWTH_PROV_CSV')
         self.__COLOR_MAP_FILE = os.getenv("FUEL_TYPE_COLOR_MAP_JSON")
         self.__COMBINATION_FILE = os.getenv("FUEL_TYPE_COMBINATION_JSON")
-        
+
         self.FIRE_PROV_COL_NAME = os.getenv('FIRE_PROV_COL_NAME')
         self.FIRE_YEAR_COL_NAME = os.getenv('FIRE_YEAR_COL_NAME')
 
@@ -43,12 +43,28 @@ class AfterFireFuelTypeGrowthProcessor:
             filepath_or_buffer = self.__get_data_file_loc()
         )
     
-    def __drop_column(self, df:pd.DataFrame, col:str)->pd.DataFrame:
+    def __drop_column(self, df:pd.DataFrame, col:str|list)->pd.DataFrame:
         df.drop(
             labels = col,
             axis = 1,
             inplace = True
         )
+        return df
+    
+    def __merge_types(self, df:pd.DataFrame, merge_map:dict)->pd.DataFrame:
+        # combine the same groups
+        for cobined_type in merge_map:
+            fusion_columns = merge_map[cobined_type]
+            # merge the data
+            df[cobined_type] = df[fusion_columns].sum(
+                axis = 1
+            )
+
+            # deleted the old columns
+            df = self.__drop_column(
+                df = df,
+                col = fusion_columns
+            )   
         return df
     
     def __get_fuel_color_map_file_loc(self):
@@ -63,7 +79,12 @@ class AfterFireFuelTypeGrowthProcessor:
             df = self.data_df,
             col = self.FUEL_TYPE_WATER
         )
-        print(self.data_df.columns)
+
+        # merge same types
+        self.data_df = self.__merge_types(
+            df = self.data_df,
+            merge_map = self.__COMBINATION_MAP
+        )
 
     def get_data(self)->pd.DataFrame:
         return self.data_df
