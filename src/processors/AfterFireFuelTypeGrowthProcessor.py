@@ -18,6 +18,25 @@ class AfterFireFuelTypeGrowthProcessor:
 
         self.FUEL_TYPE_WATER = os.getenv('FUEL_TYPE_WATER')
 
+        self.ALL_PROV_VAL = os.getenv("ALL_PROV_DATA_VAL")
+
+                # set order of prov
+        self.PROV_ORDER = [
+            'Yukon',
+            'NorthWest Territories',
+            'Nunavut',
+            'British Columbia',
+            'Alberta',
+            'Saskatchewan',
+            'Manitoba',
+            'Quebec',
+            'Ontario',
+            'NewFoundLand and Labrador',
+            'New Brunswick',
+            'Nova Scotia',
+            'Prince Edward Islands',
+        ]
+
         self.__init_color_map()
         self.__init_combination_map()
 
@@ -88,3 +107,43 @@ class AfterFireFuelTypeGrowthProcessor:
 
     def get_data(self)->pd.DataFrame:
         return self.data_df
+    
+    def get_percentage_data(self, prov:str):
+        # set default prov val
+        if prov is None:
+            prov = self.ALL_PROV_VAL
+
+        # init df
+        percentage_df = pd.DataFrame()
+
+        # provess prov data
+        if prov == self.ALL_PROV_VAL:
+            # group by year
+            percentage_df = self.data_df.groupby(
+                by = self.FIRE_YEAR_COL_NAME
+            ).sum()
+
+        elif prov in self.PROV_ORDER:
+            # filter to only the specific prov and set index to year
+            percentage_df = self.data_df[self.data_df[self.FIRE_PROV_COL_NAME] == prov].set_index(
+                self.FIRE_YEAR_COL_NAME
+            )
+        else:
+            raise ValueError("Not a valid Provience value")
+        
+        # drop prov col
+        percentage_df = self.__drop_column(
+            df = percentage_df,
+            col = self.FIRE_PROV_COL_NAME
+        )
+        
+        # calculate percentage
+        percentage_df = percentage_df.div(
+            percentage_df.sum(axis=1),
+            axis = 0
+        ) * 100
+
+        # reset index to include year
+        percentage_df = percentage_df.reset_index()
+        
+        return percentage_df
