@@ -87,6 +87,10 @@ app.layout = [
                                             },
                                             children = "Percentage of Fuel Type Grown in each Year after Historic Fires",
                                         ),
+                                        layouts.percentage_fuel_prov.get_layout(
+                                            config = config.DistFuelProv,
+                                            store = store
+                                        )
                                     ]
                                 ),
                             ],
@@ -111,9 +115,6 @@ app.layout = [
             ),
         ]
     ),
-    # layouts.fire_stats_prov.get_layout(
-    #     data_df = 
-    # )
 ]
 
 
