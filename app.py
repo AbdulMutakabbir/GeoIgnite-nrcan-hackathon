@@ -32,6 +32,8 @@ app = Dash(
     external_stylesheets=[dbc.themes.BOOTSTRAP]
 )
 
+server = app.server
+
 app.title = "2024 Fuel Type Canada"
 
 store = processors.Store()
