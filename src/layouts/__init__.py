@@ -14,6 +14,7 @@
 
 
 from .dist_fuel_prov import *
+from .active_prov_selector import *
 from .percentage_fuel_prov import *
 from .area_fuel_prov import *
 from .home_page import *

@@ -47,30 +47,33 @@ app.layout = [
             dbc.Col(
                 style = {"margin-left":"1rem"},
                 children = [
-                    dbc.Card(
-                    [
-                        dbc.CardBody(
-                            style={
-                                "align": "center", 
-                                "font-size": "2rem", 
-                                "height": "100%",
-                            },
-                            children = [
-                                html.H4(
-                                    children = "Distribution of Different Fuel Types by Province", 
-                                    style={
-                                        "text-align": "center", 
-                                        "font-size": "2rem", 
-                                    },
-                                ),
-                                layouts.dist_fuel_prov.get_layout(
-                                    config = config.DistFuelProv,
-                                    store = store
-                                )
-                            ], 
-                        ),
-                    ],
-                )
+                    dbc.Row(
+                        children = [
+                            layouts.active_prov_selector.get_layout(
+                                config = config.DistFuelProv,
+                                store = store
+                            ),
+                            dbc.Card(
+                                children = [
+                                    dbc.CardBody(
+                                        children = [
+                                            html.H4(
+                                                children = "Distribution of Different Fuel Types by Province", 
+                                                style={
+                                                    "text-align": "center", 
+                                                    "font-size": "2rem", 
+                                                },
+                                            ),
+                                            layouts.dist_fuel_prov.get_layout(
+                                                config = config.DistFuelProv,
+                                                store = store
+                                            )
+                                        ], 
+                                    ),
+                                ],
+                            )
+                        ]
+                    ),
                 ]
             ),
             dbc.Col(
