@@ -40,7 +40,7 @@ def get_layout(
     )
     return html.Div([
         dcc.Graph(
-            id = "fire-stats-prov",
+            id = "percentage-fire-stats-prov",
             figure = fig
         ),
     ])
