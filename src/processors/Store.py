@@ -8,7 +8,7 @@ class Store:
         # load env
         load_dotenv(".env")
 
-        self.all_prov_val = os.getenv("ALL_PROV_DATA_VAL")
+        self.ALL_PROV_VAL = os.getenv("ALL_PROV_DATA_VAL")
 
         self.__prov_processor = ProvFuelTypeLandAreaDataProcessor()
         self.__fire_processor = AfterFireFuelTypeGrowthProcessor()
@@ -20,7 +20,7 @@ class Store:
             "prov_fuel_type_data": self.__prov_processor.get_data(),
             "after_fire_growth_data": self.__fire_processor.get_data(),
             "prov_list": list_prov,
-            "active_prov": self.all_prov_val,
+            "active_prov": self.ALL_PROV_VAL,
         }
 
         del list_prov
