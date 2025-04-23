@@ -4,15 +4,15 @@ import plotly.express as px
 
 def get_layout(
     config,
-    processor,
+    store,
 ):
-    data_df = processor.get_data()
+    data_df = store.state['prov_fuel_type_data']
     fig = px.sunburst(
         data_frame = data_df, 
         path = config.DATA_DICT['path'], 
         values = config.DATA_DICT['value'],
         color = config.DATA_DICT['color'],
-        color_discrete_map = processor.COLOR_MAP,
+        color_discrete_map = store.state['color_map'],
         height = config.CHART_DICT['height'],
         width = config.CHART_DICT['width'],
     )
