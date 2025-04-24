@@ -19,7 +19,7 @@ def get_layout(
     fig.update_traces(
         hoverinfo = 'label+text',
         textinfo = 'label+percent entry',
-        hovertemplate="%{label}-> %{value:,.2f}km^2 of the total land area <extra></extra>",
+        hovertemplate="%{label}: %{value:,.2f}km^2 of the total land area <extra></extra>",
     )
     fig.update_layout(margin=dict(t=40, b=0, l=0, r=0))
     return html.Div([

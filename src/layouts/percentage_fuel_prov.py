@@ -17,7 +17,7 @@ def get_fig(
         textposition = 'inside', 
         hoverinfo = ['x', 'y', 'z', 'text', 'name'],
         # textinfo = 'label+percent entry',
-        hovertemplate="%{text} %{value:.2f}% of the total fuel type grown in 2024 after %{x} historic fire accounted for <extra></extra>",
+        hovertemplate="%{value:.2f}% of the total fuel type grown in 2024 after %{x} historic fire accounted for this<extra></extra>",
         # showlegend = False,
     )
     fig.update_layout(
