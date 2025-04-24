@@ -6,7 +6,7 @@ def get_layout():
 
     citation = """
     @inproceedings{mutakabbir2025iri,
-        author={Mutakabbir, Abdul and Lung, Chung-Horng and Ajila, Samuel A. and Naik, Kshirasagar and Zaman, Marzia and Purcell, Richard and Sampalli, Srinivas and Ravichandran, Thambirajah},
+        author={Mutakabbir, Abdul and Lung, Chung-Horng and Naik, Kshirasagar and Zaman, Marzia and Purcell, Richard and Sampalli, Srinivas and Ravichandran, Thambirajah},
         booktitle={IEEE 26th International Conference on Information Reuse and Integration for Data Science}, 
         title={A Visual Statistical Insight into the Post-Wildfire Growth of Different Fuel Types in Canada}, 
         year={2025},
