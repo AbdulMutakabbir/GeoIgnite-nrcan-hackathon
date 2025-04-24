@@ -53,8 +53,8 @@ def get_layout():
                                 [
                                     dbc.AccordionItem(
                                         "I would like to thank GeoIgnite 2025 NRCan (CCMEO) GEO.ca Hackathon for allowing the participation in this hackathon. " \
-                                        "This wrok has been inspired from our reseach paper submited to IRI 2025 conference and is currently under review.", 
-                                        title="Acknoledgemnt"
+                                        "This work has been inspired from our reseach paper submited to IRI 2025 conference and is currently under review.", 
+                                        title="Acknowledgement"
                                     ),
                                     dbc.AccordionItem(
                                         title="Citation / Reference",
